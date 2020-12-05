@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "438290655958",
+    "firebase_url": "https://bookcommentapp.firebaseio.com",
+    "project_id": "bookcommentapp",
+    "storage_bucket": "bookcommentapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438290655958:android:7a721c0e99e4320846f777",
+        "android_client_info": {
+          "package_name": "com.eneserdogan.bookcommentapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438290655958-n6kjckuia8eb6b1eh2q9go6ta93ovv8f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA80ZDDqjmAnoxs_2qmrWtjTCoOxdG-0Us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438290655958-n6kjckuia8eb6b1eh2q9go6ta93ovv8f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

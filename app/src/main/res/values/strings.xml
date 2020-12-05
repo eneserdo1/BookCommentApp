@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">BookCommentApp</string>
+    <string name="login_start">Başlayalım</string>
+    <string name="login_startWith_email">Email İle Giriş Yap</string>
+    <string name="login_signupWith_email">Email İle Kayıt Ol</string>
+    <string name="forgot_password_text">Şifre Sıfırla</string>
+    <string name="starting_road">Yolculuğa Başla</string>
+    <string name="forgot_password">Şifremi Unuttum</string>
+    <string name="accept_rules">Hüküm ve Koşulları Kabul Ediyorum</string>
+    <string name="title_activity_home_page">MainActivity</string>
+    <string name="title_home">Keşfet</string>
+    <string name="title_dashboard">Ara</string>
+    <string name="title_notifications">Profil</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rowling_biyografi">Joanne Rowling, 31 Temmuz 1965’te Chipping Sodburry,
+ İngiltere’de doğdu.Ailesiyle birlikte Bristol’e, daha sonra
+ da Chepstow’a taşındı. Liseyi Wyedean Comprehensive’de
+ okuduktan sonra Exeter Üniversitesinde Fransız Dili ve
+ Edebiyatı eğitimini tamamladı ve Londra’ya yerleşerek
+araştırmacı ve iki dil bilen bir sekreter olarak İnsan Haklar
+ı Örgütünde çalışmaya başladıHarry Potter serisinin dışında
+ dört romanı daha yayımlanan Rowling, polisiye türündeki
+ üç eserini Robert Galbraith mahlasıyla yazmıştır. İlk eseriyse
+ 6 yaşındayken yazdığı “Tavşan” adlı hikayesidir.Rowling’in
+Harry Potter serisi tüm dünyada 400 milyon kopya satarak
+ hem kitabı hem de yazarını büyük bir üne kavuşturdu.
+Türkiye’de basımı Yapı Kredi Yayınları tarafından yapılmıştır.
+ Serinin ilk kitabı olan Harry Potter ve Felsefe Taşı Ülkü
+ Tamer tarafından, ikinci kitap Harry Potter ve Sırlar Odası,
+ Sevin Okyay tarafından, üçüncü kitap ve sonrası ise Sevin
+ Okyay ve Kutlukhan Kutlu çevirisiyle kazandırılmıştır</string>
+    <string name="continueWithoutSignin">Kayıt Olmadan Devam Et</string>
+</resources>

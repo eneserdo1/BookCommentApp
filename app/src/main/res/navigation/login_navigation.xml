@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation"
+    app:startDestination="@id/loginPageOneFragment">
+
+    <fragment
+        android:id="@+id/loginPageOneFragment"
+        android:name="com.eneserdogan.bookcommentapp.LoginUI.ui.LoginPageOneFragment"
+        android:label="LoginPageOneFragment"
+        tools:layout="@layout/loginpage_one_fragment"
+
+        >
+        <action
+            android:id="@+id/action_loginPageOneFragment_to_loginPageTwoFragment"
+            app:destination="@id/loginPageTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginPageTwoFragment"
+        android:name="com.eneserdogan.bookcommentapp.LoginUI.ui.LoginPageTwoFragment"
+        android:label="LoginPageTwoFragment"
+        tools:layout="@layout/loginpage_two_fragment"
+        >
+        <action
+            android:id="@+id/action_loginPageTwoFragment_to_loginPageSigninFragment"
+            app:destination="@id/loginPageSigninFragment" />
+        <action
+            android:id="@+id/action_loginPageTwoFragment_to_loginPageSignupFragment"
+            app:destination="@id/loginPageSignupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginPageSigninFragment"
+        android:name="com.eneserdogan.bookcommentapp.LoginUI.ui.LoginSignin.LoginPageSigninFragment"
+        android:label="LoginPageSigninFragment"
+        tools:layout="@layout/loginpage_signin_fragment"
+       >
+        <action
+            android:id="@+id/action_loginPageSigninFragment_to_loginPageForgotPassword"
+            app:destination="@id/loginPageForgotPassword" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginPageSignupFragment"
+        android:name="com.eneserdogan.bookcommentapp.LoginUI.ui.LoginSignUp.LoginPageSignupFragment"
+        android:label="LoginPageSignupFragment"
+        tools:layout="@layout/loginpage_signup_fragment"
+       />
+    <fragment
+        android:id="@+id/loginPageForgotPassword"
+        android:name="com.eneserdogan.bookcommentapp.LoginUI.ui.LoginForgotPassword.LoginPageForgotPassword"
+        android:label="LoginPageForgotPassword" />
+</navigation>

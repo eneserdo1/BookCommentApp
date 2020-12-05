@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:background="@drawable/login_card_shape"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:cardBackgroundColor="@android:color/transparent"
+        >
+        <LinearLayout
+            android:background="@drawable/login_card_shape"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:text="@string/starting_road"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/nunito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/login_btn_signin_email"
+                android:layout_width="320dp"
+                android:layout_height="60dp"
+                android:background="@drawable/button_background"
+                android:text="@string/login_startWith_email"
+                android:textColor="@color/white"
+                android:textSize="26sp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/nunito"
+                android:textAllCaps="false"/>
+            <Button
+                android:id="@+id/login_btn_signup_email"
+                android:layout_width="320dp"
+                android:layout_height="60dp"
+                android:background="@drawable/button_background"
+                android:text="@string/login_signupWith_email"
+                android:textColor="@color/white"
+                android:fontFamily="@font/nunito"
+                android:layout_marginTop="5dp"
+                android:textSize="26sp"
+                android:textAllCaps="false"/>
+            <Button
+                android:layout_width="320dp"
+                android:layout_height="60dp"
+                android:text="@string/continueWithoutSignin"
+                android:background="@drawable/button_background"
+                android:textSize="26sp"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/nunito"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+</FrameLayout>

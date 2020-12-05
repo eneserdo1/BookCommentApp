@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginUI.ui.profil.NormalUserSettingFragment">
+    <Button
+        android:id="@+id/normalUserFragment_back_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/backbutton"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kullanıcı Bilgileri"
+            android:textSize="24sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profilFragment_imageview"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/photo"
+            app:civ_border_width="3dp"
+            app:civ_border_color="#000000"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_margin="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:enabled="false"
+                android:id="@+id/normalUserFragment_email_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="eneserdo.01@gmail.com"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_margin="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:enabled="false"
+                android:id="@+id/normalUserFragment_name_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Muhammed Enes"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_margin="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edittext_background"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:enabled="false"
+                android:id="@+id/normalUserFragment_surname_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Erdoğan"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            >
+            <Button
+                android:id="@+id/normalUserFragment_save_button"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:text="Kaydet"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:background="@drawable/button_background"/>
+            <Button
+                android:id="@+id/normalUserFragment_edit_button"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:text="Düzenle"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:background="@drawable/button_background"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+</ScrollView>

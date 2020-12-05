@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="50dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginUI.ui.BookDetail.BookDetailFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/today"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/bookDetailFragment_bookImage"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:background="@drawable/harrybackground"
+            android:layout_gravity="center_vertical"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/bookDetailFragment_bookName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Harry Potter Felsefe Taşı"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:layout_margin="5dp"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bookDetailFragment_authorcardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/transparent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/authorcard_background"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/bookDetailFragment_authorImage"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/photo"
+                    app:civ_border_width="3dp"
+                    app:civ_border_color="#000000"/>
+                <TextView
+                    android:id="@+id/bookDetailFragment_authorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Muhammed Enes Erdoğan"
+                    android:textSize="16sp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="10dp"/>
+                <Button
+                    android:id="@+id/bookDetailFragment_btnExpandableDown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/ic_baseline_keyboard_arrow_down_24"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/bookDetailFragment_autohordetailexpandable_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/bookDetailFragment_authorDetailImage"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/photo"
+                    app:civ_border_width="3dp"
+                    app:civ_border_color="#000000"/>
+                <TextView
+                    android:id="@+id/bookDetailFragment_authorDetailName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Muhammed Enes Erdoğan"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/bookDetail_authorBiography"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rowling_biyografi"
+                    android:layout_margin="15dp"
+                    android:textSize="12sp"/>
+                <Button
+                    android:id="@+id/bookDetailFragment_commentButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Yorumla"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_background_2"
+                    android:layout_margin="15dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="15dp"
+        android:gravity="center_horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/bookDetailFragment_starScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9.4"
+                android:drawableTop="@drawable/ic_baseline_star_24"
+                android:textSize="24sp"/>
+            <TextView
+                android:id="@+id/bookDetailFragment_starCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="3180"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/bookDetailFragment_commentCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_baseline_comment_24"
+                android:text="20.000"
+                android:textSize="24sp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>
+</ScrollView>

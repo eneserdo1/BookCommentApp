@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="160dp">
+    <ImageView
+        android:id="@+id/searchRecycler_ımage"
+        android:layout_width="140dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/bookworm"
+        android:layout_margin="5dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/searchRecycler_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Harry Potter ve Felsefe Taşı"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:id="@+id/searchRecycler_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="J.K.Rowling"
+            android:layout_margin="3dp"/>
+
+        <TextView
+            android:id="@+id/searchRecycler_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9.4"
+            android:drawableStart="@drawable/ic_baseline_star_24"
+            android:layout_margin="3dp"
+            android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/searchRecycler_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="300+ Değerlendirme"
+            android:textSize="17sp"
+            android:textColor="@color/orange"/>
+
+    </LinearLayout>
+
+</LinearLayout>
