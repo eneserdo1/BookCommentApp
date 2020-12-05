@@ -47,7 +47,7 @@ class LoginPageSigninFragment : Fragment() {
                 signin_progressbar.visibility = View.GONE
             } else {
                 viewModel.signIn(
-                    requireActivity(),
+                    requireContext(),
                     signin_edittext_email.text.toString(),
                     signin_edittext_password.text.toString()
                 )

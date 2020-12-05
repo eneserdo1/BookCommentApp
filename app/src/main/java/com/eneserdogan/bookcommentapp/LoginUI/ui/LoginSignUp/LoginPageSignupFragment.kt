@@ -8,9 +8,11 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import com.eneserdogan.bookcommentapp.LoginUI.model.User
 import com.eneserdogan.bookcommentapp.R
 import kotlinx.android.synthetic.main.loginpage_signup_fragment.*
+import java.util.regex.Pattern
 
 class LoginPageSignupFragment : Fragment() {
     private lateinit var viewModel: LoginPageSignupViewModel
@@ -40,7 +42,7 @@ class LoginPageSignupFragment : Fragment() {
 
             } else if (signup_edittext_password.text.toString() == signup_edittext_passwordtwo.text.toString()) {
 
-                val user = User(
+                var user = User(
                     signup_edittext_name.text.toString() + signup_edittext_surname.text.toString(),
                     signup_edittext_email.text.toString(),
                     signup_edittext_password.text.toString(),
@@ -49,7 +51,14 @@ class LoginPageSignupFragment : Fragment() {
                     false,
                     "1997 doğumlu Bilgisayar Mühendisi"
                 )
-                viewModel.userSignUp(requireActivity(), user, requireContext())
+
+                if (isEmailValid(signup_edittext_email.text.toString())){
+                    viewModel.userSignUp(requireActivity(), user, requireContext())
+                    Navigation.findNavController(it).navigate(R.id.action_loginPageSignupFragment_to_loginPageSigninFragment)
+                }else{
+                    Toast.makeText(context,"Doğru Formatta Mail Adresi Giriniz",Toast.LENGTH_LONG).show()
+                }
+
 
             } else {
                 Toast.makeText(
@@ -73,7 +82,11 @@ class LoginPageSignupFragment : Fragment() {
     }
 
 
-    fun isEmpty(editText: EditText): Boolean {
+    private fun isEmpty(editText: EditText): Boolean {
         return editText.text.toString() == ""
+    }
+
+    private fun isEmailValid(email: String): Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 }

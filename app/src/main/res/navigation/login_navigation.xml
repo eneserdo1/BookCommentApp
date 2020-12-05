@@ -44,7 +44,11 @@
         android:name="com.eneserdogan.bookcommentapp.LoginUI.ui.LoginSignUp.LoginPageSignupFragment"
         android:label="LoginPageSignupFragment"
         tools:layout="@layout/loginpage_signup_fragment"
-       />
+       >
+        <action
+            android:id="@+id/action_loginPageSignupFragment_to_loginPageSigninFragment"
+            app:destination="@id/loginPageSigninFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginPageForgotPassword"
         android:name="com.eneserdogan.bookcommentapp.LoginUI.ui.LoginForgotPassword.LoginPageForgotPassword"

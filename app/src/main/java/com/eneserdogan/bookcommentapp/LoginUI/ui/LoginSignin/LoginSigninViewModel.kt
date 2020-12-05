@@ -16,20 +16,20 @@ class LoginSigninViewModel : ViewModel() {
     var auth = FirebaseAuth.getInstance()
 
 
-    fun signIn(fragmentActivity: FragmentActivity, mail: String, password: String) {
+    fun signIn(context: Context, mail: String, password: String) {
 
         auth.signInWithEmailAndPassword(mail, password)
             .addOnCompleteListener(object : OnCompleteListener<AuthResult> {
                 override fun onComplete(p0: Task<AuthResult>) {
                     if (p0.isSuccessful) {
                         val intent = Intent(
-                            fragmentActivity.applicationContext,
+                            context,
                             HomePageActivity::class.java
                         )
-                        startActivity(fragmentActivity.applicationContext, intent, null)
+                        startActivity(context, intent, null)
                     } else {
                         Toast.makeText(
-                            fragmentActivity.applicationContext,
+                            context,
                             "Lütfen Mail veya Şifre Yanlış",
                             Toast.LENGTH_LONG
                         ).show()

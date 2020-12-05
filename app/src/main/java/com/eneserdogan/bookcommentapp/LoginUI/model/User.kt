@@ -4,7 +4,7 @@ data class User(
     val name:String,
     val mail:String,
     val password:String,
-    val userId:String,
+    var userId:String,
     val imgUrl:String,
     val premiumState:Boolean,
     val biography:String

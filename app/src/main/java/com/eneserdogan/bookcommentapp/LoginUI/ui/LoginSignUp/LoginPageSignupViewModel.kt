@@ -6,6 +6,7 @@ import android.view.View
 
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
+import androidx.navigation.Navigation
 import com.eneserdogan.bookcommentapp.LoginUI.model.User
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
@@ -21,6 +22,7 @@ class LoginPageSignupViewModel : ViewModel() {
 
 
     fun userSignUp(activity: Activity, user: User, context: Context) {
+
         auth.createUserWithEmailAndPassword(user.mail, user.password)
             .addOnCompleteListener(object : OnCompleteListener<AuthResult> {
                 override fun onComplete(p0: Task<AuthResult>) {
@@ -28,9 +30,13 @@ class LoginPageSignupViewModel : ViewModel() {
                         val newUser = auth.currentUser
                         Toast.makeText(
                             context,
-                            "Kayıt Başarılı, Mail Adresinizi Kontrol Ediniz",
+                            "Kayıt Başarılı, Giriş Yapınız",
                             Toast.LENGTH_LONG
                         ).show()
+
+                        val id=FirebaseAuth.getInstance().uid
+                        user.userId=id!!
+                        println("idd "+user.userId)
 
                     } else {
                         Toast.makeText(context, "Kayıt Başarısız", Toast.LENGTH_LONG).show()
