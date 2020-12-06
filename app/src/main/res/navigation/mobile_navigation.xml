@@ -29,6 +29,9 @@
         <action
             android:id="@+id/profileFragment_to_normalUser_setting"
             app:destination="@id/normalUserSettingFragment" />
+        <action
+            android:id="@+id/profilFragment_to_addBookFragment"
+            app:destination="@id/addBookFragment" />
     </fragment>
     <fragment
         android:id="@+id/normalUserSettingFragment"
@@ -39,4 +42,8 @@
         android:id="@+id/bookDetailFragment"
         android:name="com.eneserdogan.bookcommentapp.LoginUI.ui.BookDetail.BookDetailFragment"
         android:label="BookDetailFragment" />
+    <fragment
+        android:id="@+id/addBookFragment"
+        android:name="com.eneserdogan.bookcommentapp.LoginUI.ui.profil.AddBookFragment"
+        android:label="AddBookFragment" />
 </navigation>

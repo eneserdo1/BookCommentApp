@@ -26,10 +26,19 @@ class ProfilFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        buttonsListener()
+
+    }
+
+    private fun buttonsListener() {
         profilFragment_btn_setting.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.profileFragment_to_normalUser_setting)
         }
 
+        profilFragment_floatBtn_add.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.profilFragment_to_addBookFragment)
+        }
     }
 
 }
