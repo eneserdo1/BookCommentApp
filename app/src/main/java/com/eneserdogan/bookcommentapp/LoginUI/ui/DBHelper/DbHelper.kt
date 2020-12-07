@@ -1,25 +1,22 @@
-package com.eneserdogan.bookcommentapp.LoginUI.ui.profil
+package com.eneserdogan.bookcommentapp.LoginUI.ui.DBHelper
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.renderscript.Sampler
 import com.eneserdogan.bookcommentapp.LoginUI.model.Book
 import com.eneserdogan.bookcommentapp.LoginUI.model.User
-import com.eneserdogan.bookcommentapp.LoginUI.ui.DBHelper.DbHelper
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import java.sql.SQLOutput
 
-class ProfilViewModel : ViewModel() {
-    val userData=MutableLiveData<User>()
-    val userBook=MutableLiveData<List<Book>>()
-
+class DbHelper {
     private lateinit var databaseReference: DatabaseReference
-    lateinit var dbHelper:DbHelper
-    val id=FirebaseAuth.getInstance().uid
+    internal var userData: User? = null
+    //internal var userBooks: ArrayList<Book>? = null
+    lateinit var userBooks:ArrayList<Book>
 
-    fun getUser(){
-       databaseReference = FirebaseDatabase.getInstance().reference
-        val rootref = databaseReference.child("users").child(id.toString())
+
+    /*fun getUserData(userId: String): User? {
+        println("dbHelper getuser data")
+        databaseReference = FirebaseDatabase.getInstance().reference
+        val rootref = databaseReference.child("users").child(userId.toString())
         val valueEventListener = object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 throw p0.toException(); //Don't ignore errors
@@ -27,16 +24,18 @@ class ProfilViewModel : ViewModel() {
             override fun onDataChange(p0: DataSnapshot) {
                 val user = p0.getValue(User::class.java)
                 println("userss $user")
-                userData.value=user
+                userData=user
             }
         }
         rootref.addListenerForSingleValueEvent(valueEventListener)
-
+        return userData
     }
-    fun getUserBooks(){
+
+
+    fun getUserBook(userId: String): MutableList<Book> {
         databaseReference = FirebaseDatabase.getInstance().reference
         val books: MutableList<Book> = ArrayList()
-        val rootref = databaseReference.child("Books").child(id.toString())
+        val rootref = databaseReference.child("Books").child(userId.toString())
         val valueEventListener = object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 throw p0.toException(); //Don't ignore errors
@@ -47,11 +46,10 @@ class ProfilViewModel : ViewModel() {
                     println("Books  $book")
                     book?.let { books.add(it) }
                 }
-                userBook.value=books
             }
         }
         rootref.addValueEventListener(valueEventListener)
         println("bookList $books")
-
-    }
+        return books
+    }*/
 }

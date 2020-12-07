@@ -38,9 +38,8 @@ import java.util.jar.Manifest
 import java.util.regex.Pattern
 
 class LoginPageSignupFragment : Fragment() {
+
     private lateinit var viewModel: LoginPageSignupViewModel
-
-
     private var filePath: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,15 +47,12 @@ class LoginPageSignupFragment : Fragment() {
 
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         signUpButtonsListener()
         userPhotoBtnListener()
-
     }
-
     private fun userPhotoBtnListener() {
         signup_ımage_user.setOnClickListener {
             showCustomAlertDialog()
@@ -66,7 +62,7 @@ class LoginPageSignupFragment : Fragment() {
 
     private fun signUpButtonsListener() {
         signup_btn.setOnClickListener {
-            println("doğruluk kontroll "+isEmpty(signup_edittext_email))
+            println("doğruluk kontroll " + isEmpty(signup_edittext_email))
             if (isEmpty(signup_edittext_email) || isEmpty(signup_edittext_name) ||
                 isEmpty(signup_edittext_surname) || isEmpty(signup_edittext_email)
                 || isEmpty(signup_edittext_passwordtwo)
@@ -78,18 +74,17 @@ class LoginPageSignupFragment : Fragment() {
             } else if (signup_edittext_password.text.toString() == signup_edittext_passwordtwo.text.toString()) {
 
                 var user = User(
-                    signup_edittext_name.text.toString() +""+ signup_edittext_surname.text.toString(),
+                    signup_edittext_name.text.toString() + " " + signup_edittext_surname.text.toString(),
                     signup_edittext_email.text.toString(),
                     signup_edittext_password.text.toString(),
                     "degersiz",
                     "boş",
                     false,
-                    "1997 doğumlu Bilgisayar Mühendisi",
-                    books = null
+                    "1997 doğumlu Bilgisayar Mühendisi"
+
                 )
 
                 if (isEmailValid(signup_edittext_email.text.toString()) && filePath != null) {
-
                     viewModel.userSignUp(requireActivity(), user, requireContext(), filePath)
                     Navigation.findNavController(it)
                         .navigate(R.id.action_loginPageSignupFragment_to_loginPageSigninFragment)
@@ -102,8 +97,6 @@ class LoginPageSignupFragment : Fragment() {
                     )
                         .show()
                 }
-
-
             } else {
                 Toast.makeText(
                     context,
@@ -111,10 +104,8 @@ class LoginPageSignupFragment : Fragment() {
                     Toast.LENGTH_LONG
                 ).show()
             }
-
         }
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -150,7 +141,7 @@ class LoginPageSignupFragment : Fragment() {
         }
     }
 
-    private fun  selectPhotoWithGallery() {
+    private fun selectPhotoWithGallery() {
 
         Dexter.withActivity(requireActivity()).withPermissions(
             android.Manifest.permission.CAMERA,
@@ -201,7 +192,6 @@ class LoginPageSignupFragment : Fragment() {
         val IMAGE_PICK_CODE = 1000
         val PERMISSION_CODE = 1001
     }
-
 
 
 }

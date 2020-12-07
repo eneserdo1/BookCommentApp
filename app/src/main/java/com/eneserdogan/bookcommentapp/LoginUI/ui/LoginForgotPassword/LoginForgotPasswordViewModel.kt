@@ -1,13 +1,15 @@
 package com.eneserdogan.bookcommentapp.LoginUI.ui.LoginForgotPassword
 
+import android.app.Application
 import android.content.Context
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
+import com.eneserdogan.bookcommentapp.LoginUI.ui.BaseViewModel
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 
-class LoginForgotPasswordViewModel:ViewModel() {
+class LoginForgotPasswordViewModel(application: Application):BaseViewModel(application) {
 
 
     fun sendEmail(mail:String,context: Context){

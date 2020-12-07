@@ -1,18 +1,20 @@
 package com.eneserdogan.bookcommentapp.LoginUI.ui.LoginSignin
 
+import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
+import com.eneserdogan.bookcommentapp.LoginUI.ui.BaseViewModel
 import com.eneserdogan.bookcommentapp.LoginUI.ui.HomePageActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 
-class LoginSigninViewModel : ViewModel() {
+class LoginSigninViewModel(application: Application) : BaseViewModel(application) {
     var auth = FirebaseAuth.getInstance()
 
 

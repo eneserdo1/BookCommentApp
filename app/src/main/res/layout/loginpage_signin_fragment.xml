@@ -24,7 +24,6 @@
 
             <TextView
                 android:text="@string/login_startWith_email"
-                android:textStyle="bold"
                 android:textSize="28sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/nunito"
@@ -56,7 +55,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_margin="7dp"
+                android:layout_margin="5dp"
                 android:layout_width="320dp"
                 android:layout_height="60dp">
                 <com.google.android.material.textfield.TextInputEditText
@@ -76,9 +75,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/forgot_password"
                 android:textColor="@color/white"
+
                 android:textSize="18sp"
                 android:fontFamily="@font/nunito"
-                android:layout_margin="5dp"/>
+                android:layout_margin="2dp"/>
 
             <Button
                 android:layout_marginTop="15dp"

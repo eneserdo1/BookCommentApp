@@ -46,7 +46,7 @@ class AddBookViewModel : ViewModel() {
         lateinit var database: DatabaseReference
         database = FirebaseDatabase.getInstance().reference
 
-        database.child("users").child(book.authorId.toString()).child("books")
+        database.child("Books").child(book.authorId.toString())
             .child(book.bookId.toString()).setValue(book)
             .addOnCompleteListener {
                 Toast.makeText(context, "Yükleme Tamamlandı", Toast.LENGTH_LONG).show()
