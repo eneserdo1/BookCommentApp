@@ -30,12 +30,15 @@ class LoginPageForgotPassword : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       forgotPassword_btn.setOnClickListener {
-           val mail=forgotPasswprd_edittext_mail.text.toString()
-           viewmodel.sendEmail(mail,requireContext())
-           forgotPasswprd_edittext_mail.setText("")
-       }
+        forgotPassBtnListener()
 
     }
 
+    private fun forgotPassBtnListener() {
+        forgotPassword_btn.setOnClickListener {
+            val mail=forgotPasswprd_edittext_mail.text.toString()
+            viewmodel.sendEmail(mail,requireContext())
+            forgotPasswprd_edittext_mail.setText("")
+        }
+    }
 }

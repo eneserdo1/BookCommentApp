@@ -26,6 +26,11 @@ class LoginPageOneFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        startButtonListener()
+
+    }
+
+    private fun startButtonListener() {
         login_btn_start.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_loginPageOneFragment_to_loginPageTwoFragment)
         }

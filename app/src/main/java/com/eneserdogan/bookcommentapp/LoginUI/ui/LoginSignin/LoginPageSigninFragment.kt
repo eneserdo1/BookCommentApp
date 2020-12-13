@@ -34,6 +34,15 @@ class LoginPageSigninFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         signInButtonsListener()
+        forgotPassButtonListener()
+    }
+
+    private fun forgotPassButtonListener() {
+        // Şifremi unuttum dinleniyor //
+        signin_forgot_text.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(R.id.action_loginPageSigninFragment_to_loginPageForgotPassword)
+        }
     }
 
     private fun signInButtonsListener() {
@@ -52,13 +61,6 @@ class LoginPageSigninFragment : Fragment() {
                     signin_edittext_password.text.toString()
                 )
             }
-        }
-
-
-        // Şifremi unuttum dinleniyor //
-        signin_forgot_text.setOnClickListener {
-            Navigation.findNavController(it)
-                .navigate(R.id.action_loginPageSigninFragment_to_loginPageForgotPassword)
         }
     }
 

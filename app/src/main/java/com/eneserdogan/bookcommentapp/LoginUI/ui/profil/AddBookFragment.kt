@@ -18,6 +18,7 @@ import com.eneserdogan.bookcommentapp.LoginUI.ui.LoginSignUp.LoginPageSignupFrag
 import com.eneserdogan.bookcommentapp.R
 import com.google.firebase.auth.FirebaseAuth
 import com.karumi.dexter.Dexter
+import androidx.lifecycle.Observer
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
@@ -33,7 +34,6 @@ class AddBookFragment : Fragment() {
     private lateinit var viewModel: AddBookViewModel
     private var filePath: Uri? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -45,7 +45,6 @@ class AddBookFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_add_book, container, false)
-
         viewModel = ViewModelProviders.of(this).get(AddBookViewModel::class.java)
         return root
     }
@@ -54,9 +53,22 @@ class AddBookFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         buttonsListener()
-
-
+        observeData()
     }
+
+    private fun observeData() {
+        viewModel.loadingData.observe(viewLifecycleOwner,Observer {value->
+            value?.let {
+                if (it){
+                    addBookFragment_progressbar.visibility=View.VISIBLE
+                }else{
+                    addBookFragment_progressbar.visibility=View.GONE
+                }
+            }
+
+        })
+    }
+
 
     private fun buttonsListener() {
         addBookFragment_book_ımage.setOnClickListener {

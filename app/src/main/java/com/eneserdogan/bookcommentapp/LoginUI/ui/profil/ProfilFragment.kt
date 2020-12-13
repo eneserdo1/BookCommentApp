@@ -34,29 +34,51 @@ class ProfilFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_profil, container, false)
         println("profil fragment oncreateview")
 
-
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         println("profil fragment onviewcreated")
+
         profilViewModel.getUser()
         profilViewModel.getUserBooks()
-
-        profilFragment_userbook_recyclerview.layoutManager=LinearLayoutManager(context)
-        profilFragment_userbook_recyclerview.adapter=userBookRecyclerAdapter
-
+        initializeRecycler()
         buttonsListener()
         observeData()
 
+    }
 
+    private fun initializeRecycler() {
+        profilFragment_userbook_recyclerview.layoutManager=LinearLayoutManager(context)
+        profilFragment_userbook_recyclerview.adapter=userBookRecyclerAdapter
     }
 
     private fun observeData() {
+        profilViewModel.loadingData.observe(viewLifecycleOwner, Observer {
+            if (it){
+                profilFragment_progressbar.visibility=View.VISIBLE
+                profilFragment_errorMessage.visibility=View.GONE
+                profilFragment_userbook_recyclerview.visibility=View.GONE
+
+            }else{
+                profilFragment_progressbar.visibility=View.GONE
+            }
+        })
+
+        profilViewModel.errorMessage.observe(viewLifecycleOwner, Observer {
+            if (it){
+                profilFragment_userbook_recyclerview.visibility=View.GONE
+                profilFragment_errorMessage.visibility=View.VISIBLE
+            }else{
+                profilFragment_errorMessage.visibility=View.GONE
+
+            }
+        })
         profilViewModel.userBook.observe(viewLifecycleOwner, Observer {books ->
             books?.let {
                 userBookRecyclerAdapter.updateBookList(books)
+                profilFragment_userbook_recyclerview.visibility=View.VISIBLE
                 println("observer book $it")
             }
         })

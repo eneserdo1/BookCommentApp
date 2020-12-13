@@ -29,11 +29,17 @@ class BookDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        expandableButtonListener()
+
+    }
+
+    private fun expandableButtonListener() {
         bookDetailFragment_btnExpandableDown.setOnClickListener {
             if(bookDetailFragment_autohordetailexpandable_layout.visibility==View.GONE){
                 TransitionManager.beginDelayedTransition(bookDetailFragment_authorcardview, AutoTransition())
                 bookDetailFragment_autohordetailexpandable_layout.visibility=View.VISIBLE
-               bookDetailFragment_btnExpandableDown.setBackgroundResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
+                bookDetailFragment_btnExpandableDown.setBackgroundResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
             }else{
                 TransitionManager.beginDelayedTransition(bookDetailFragment_authorcardview,AutoTransition())
                 bookDetailFragment_autohordetailexpandable_layout.visibility=View.GONE

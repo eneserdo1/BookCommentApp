@@ -21,7 +21,5 @@ class LoginForgotPasswordViewModel(application: Application):BaseViewModel(appli
                 Toast.makeText(context,"Hata Oluştu",Toast.LENGTH_LONG).show()
             }
         }
-
     }
-
 }

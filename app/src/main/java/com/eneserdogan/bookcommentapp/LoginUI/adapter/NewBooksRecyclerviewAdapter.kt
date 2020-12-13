@@ -5,12 +5,30 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.eneserdogan.bookcommentapp.LoginUI.model.Book
 import com.eneserdogan.bookcommentapp.R
 import kotlinx.android.synthetic.main.home_newbooks_recyclerview_item.view.*
 
 class NewBooksRecyclerviewAdapter:RecyclerView.Adapter<NewBooksRecyclerviewAdapter.MyHolder>() {
-    class MyHolder(view:View):RecyclerView.ViewHolder(view) {
 
+    var originalList = listOf<Book>()
+
+    fun setApp(bookList:List<Book>){
+        this.originalList=bookList
+        println("Adapter ${this.originalList}")
+        notifyDataSetChanged()
+    }
+
+    class MyHolder(view:View):RecyclerView.ViewHolder(view) {
+        fun bind(data:Book) = with(itemView){
+            newBooksRecycler_authorName.text=data.author
+            newBooksRecycler_bookName.text=data.name
+            Glide.with(itemView.context).load(data.photoUri).into(newBooksRecycler_image)
+            itemView.setOnClickListener {
+                Navigation.findNavController(it).navigate(R.id.action_navigation_home_to_bookDetailFragment)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
@@ -20,15 +38,11 @@ class NewBooksRecyclerviewAdapter:RecyclerView.Adapter<NewBooksRecyclerviewAdapt
     }
 
     override fun getItemCount(): Int {
-        return 8;
+        return this.originalList.size;
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        holder.itemView.newBooksRecycler_authorName.text="J.K Rowling"
-        holder.itemView.newBooksRecycler_bookName.text="Harry Potter"
-        holder.itemView.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_navigation_home_to_bookDetailFragment)
-        }
+        holder.bind(this.originalList[position])
 
     }
 }

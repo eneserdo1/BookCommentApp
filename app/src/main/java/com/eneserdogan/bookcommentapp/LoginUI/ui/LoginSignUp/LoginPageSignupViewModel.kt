@@ -69,10 +69,10 @@ class LoginPageSignupViewModel(application: Application) : BaseViewModel(applica
                 .child("images/" + UUID.randomUUID().toString())
             imageRef.putFile(filePath!!).addOnSuccessListener {
                 imageRef.downloadUrl.addOnSuccessListener {
-                    var downloadUri=it
+                    var downloadUri = it
                     println("user download Uri ${it.toString()}")
                     user.imgUrl = downloadUri.toString()
-                    saveUserRealtimeDb(user,context)
+                    saveUserRealtimeDb(user, context)
                 }
             }
         } else {
@@ -81,7 +81,7 @@ class LoginPageSignupViewModel(application: Application) : BaseViewModel(applica
 
     }
 
-    private fun saveUserRealtimeDb(user:User,context: Context) {
+    private fun saveUserRealtimeDb(user: User, context: Context) {
         lateinit var database: DatabaseReference
         database = FirebaseDatabase.getInstance().reference
 

@@ -3,6 +3,7 @@ package com.eneserdogan.bookcommentapp.LoginUI.ui.profil
 import android.content.Context
 import android.net.Uri
 import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.eneserdogan.bookcommentapp.LoginUI.model.Book
 import com.google.android.gms.tasks.OnCompleteListener
@@ -15,7 +16,7 @@ import com.google.firebase.storage.UploadTask
 import java.util.*
 
 class AddBookViewModel : ViewModel() {
-
+    val loadingData = MutableLiveData<Boolean>()
     internal var storage: FirebaseStorage? = null
     internal var storageReference: StorageReference? = null
 
@@ -24,19 +25,21 @@ class AddBookViewModel : ViewModel() {
         lateinit var database: DatabaseReference
         storage = FirebaseStorage.getInstance()
         storageReference = storage!!.reference
-
         database = FirebaseDatabase.getInstance().reference
         val usersId = database.push().key
-
         val randomId = UUID.randomUUID().toString()
+        loadingData.value=false
+
         val imageRef = storageReference!!.child("BookPhotos").child(book.authorId.toString())
             .child("images/" + randomId)
         imageRef.putFile(filePath!!).addOnSuccessListener {
             imageRef.downloadUrl.addOnSuccessListener {
+                loadingData.value = true
                 var downloadUri = it
-                println("downUrii " + downloadUri.toString())
                 book.photoUri = downloadUri.toString()
                 saveBookRealtime(book, context)
+
+                println("downUri " + downloadUri.toString())
 
             }
         }
@@ -49,6 +52,7 @@ class AddBookViewModel : ViewModel() {
         database.child("Books").child(book.authorId.toString())
             .child(book.bookId.toString()).setValue(book)
             .addOnCompleteListener {
+                loadingData.value = false
                 Toast.makeText(context, "Yükleme Tamamlandı", Toast.LENGTH_LONG).show()
             }
     }

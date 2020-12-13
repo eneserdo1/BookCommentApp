@@ -15,8 +15,6 @@ class LoginPageTwoFragment :Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,11 +25,22 @@ class LoginPageTwoFragment :Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        login_btn_signin_email.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_loginPageTwoFragment_to_loginPageSigninFragment)
-        }
+        startSigninBtnListener()
+        startSignupBtnListener()
+
+
+
+    }
+
+    private fun startSignupBtnListener() {
         login_btn_signup_email.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_loginPageTwoFragment_to_loginPageSignupFragment)
+        }
+    }
+
+    private fun startSigninBtnListener() {
+        login_btn_signin_email.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_loginPageTwoFragment_to_loginPageSigninFragment)
         }
     }
 }
