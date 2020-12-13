@@ -20,7 +20,7 @@ class SearchViewModel : ViewModel() {
         loadingData.value=true
         databaseReference = FirebaseDatabase.getInstance().reference
 
-        val rootref = databaseReference.child("Books").child(FirebaseAuth.getInstance().uid.toString())
+        val rootref = databaseReference.child("Books")
         val valueEventListener = object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 throw p0.toException(); //Don't ignore errors

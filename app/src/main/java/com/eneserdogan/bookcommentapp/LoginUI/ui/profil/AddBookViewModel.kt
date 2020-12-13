@@ -34,9 +34,11 @@ class AddBookViewModel : ViewModel() {
             .child("images/" + randomId)
         imageRef.putFile(filePath!!).addOnSuccessListener {
             imageRef.downloadUrl.addOnSuccessListener {
+
                 loadingData.value = true
                 var downloadUri = it
                 book.photoUri = downloadUri.toString()
+                book.bookId=usersId
                 saveBookRealtime(book, context)
 
                 println("downUri " + downloadUri.toString())
@@ -49,8 +51,7 @@ class AddBookViewModel : ViewModel() {
         lateinit var database: DatabaseReference
         database = FirebaseDatabase.getInstance().reference
 
-        database.child("Books").child(book.authorId.toString())
-            .child(book.bookId.toString()).setValue(book)
+        database.child("Books").child(book.bookId.toString()).setValue(book)
             .addOnCompleteListener {
                 loadingData.value = false
                 Toast.makeText(context, "Yükleme Tamamlandı", Toast.LENGTH_LONG).show()

@@ -48,7 +48,7 @@ class ProfilViewModel : ViewModel() {
         loadingData.value=true
         databaseReference = FirebaseDatabase.getInstance().reference
         val books: MutableList<Book> = ArrayList()
-        val rootref = databaseReference.child("Books").child(id.toString())
+        val rootref = databaseReference.child("Books")
         val valueEventListener = object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 throw p0.toException(); //Don't ignore errors
@@ -60,7 +60,12 @@ class ProfilViewModel : ViewModel() {
                 for (snapshot in p0.children) {
 
                     val book = snapshot.getValue(Book::class.java)
-                    book?.let { books.add(it) }
+                    book?.let {
+                        if (book.authorId == FirebaseAuth.getInstance().uid){
+                            books.add(it)
+                        }
+
+                    }
 
                 }
                 loadingData.value=false

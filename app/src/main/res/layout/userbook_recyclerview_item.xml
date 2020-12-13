@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="135dp"
+    android:layout_height="130dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp"
     app:cardCornerRadius="10dp"
+
     >
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:weightSum="3"
-       android:orientation="horizontal">
+       android:orientation="horizontal"
+       android:background="@color/white">
        <ImageView
            android:id="@+id/userBook_recycler_image"
-           android:layout_width="wrap_content"
+           android:layout_width="0dp"
            android:layout_height="match_parent"
-           android:layout_weight="2"
+           android:layout_weight="1"
            android:src="@drawable/today2"
            android:scaleType="centerCrop"/>
        <LinearLayout
-           android:layout_width="match_parent"
+           android:layout_width="0dp"
            android:layout_height="match_parent"
-           android:layout_weight="1"
+           android:layout_weight="2"
            android:layout_margin="5dp"
            android:gravity="start"
            android:orientation="vertical">
@@ -29,7 +31,6 @@
                android:id="@+id/userBook_recycler_bookname"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:layout_marginStart="5dp"
                android:layout_marginTop="10dp"
                android:text="Kitap Adı"
                android:fontFamily="@font/nunito"
@@ -45,22 +46,25 @@
            <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:orientation="horizontal">
+               android:orientation="horizontal"
+               android:weightSum="2">
                <TextView
                    android:id="@+id/userbookRecycler_score"
-                   android:layout_width="wrap_content"
+                   android:layout_width="0dp"
                    android:layout_height="wrap_content"
                    android:layout_marginTop="10dp"
                    android:text="9.4"
+                   android:layout_weight="1"
                    android:drawableStart="@drawable/ic_baseline_star_24"
                    android:layout_marginStart="10dp"
                    android:drawablePadding="7dp"
                    android:textSize="18sp"/>
                <TextView
                    android:id="@+id/userbookRecycler_comment"
-                   android:layout_width="wrap_content"
+                   android:layout_width="0dp"
                    android:layout_height="wrap_content"
                    android:text="25"
+                   android:layout_weight="1"
                    android:drawableStart="@drawable/ic_baseline_comment_24"
                    android:layout_marginStart="10dp"
                    android:textSize="18sp"

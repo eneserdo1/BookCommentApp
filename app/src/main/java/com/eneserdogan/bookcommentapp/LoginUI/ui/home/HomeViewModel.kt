@@ -25,7 +25,8 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
         loadingData.value=true
         databaseReference = FirebaseDatabase.getInstance().reference
 
-        val rootref = databaseReference.child("Books").child(FirebaseAuth.getInstance().uid.toString())
+
+        val rootref = databaseReference.child("Books")
         val valueEventListener = object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 throw p0.toException(); //Don't ignore errors
@@ -34,11 +35,13 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                for (snapshot in p0.children) {
+                for (snapshot in p0.children)
+                {
+                    val id=snapshot.key
+                    println("idddd $id")
 
                     val book = snapshot.getValue(Book::class.java)
                     book?.let { books.add(it) }
-
                 }
                 mutableBookList.postValue(books)
                 loadingData.value=false
@@ -48,9 +51,5 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
         rootref.addValueEventListener(valueEventListener)
         return mutableBookList
     }
-
-
-
-
 
 }
