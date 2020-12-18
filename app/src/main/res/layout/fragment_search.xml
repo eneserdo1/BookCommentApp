@@ -39,21 +39,23 @@
                     android:orientation="horizontal"
                     android:gravity="center_horizontal"
                     android:layout_margin="15dp"
-                    android:weightSum="5">
+                    android:weightSum="1">
                     <SearchView
                         android:id="@+id/searchFragment_searchview"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="4"
+                        android:layout_weight="0.8"
                         android:layout_margin="5dp"
                         android:hint="Kitap adı,tür veya yazar adı"
-                        android:background="@color/white"
+                        android:paddingStart="5dp"
+                        android:background="@drawable/searchview_background"
                          />
                     <Button
                         android:id="@+id/searchFragment_btn_down"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="0.2"
+                        android:layout_gravity="center_vertical"
                         android:background="@drawable/ic_baseline_keyboard_arrow_down_24"/>
                 </LinearLayout>
 

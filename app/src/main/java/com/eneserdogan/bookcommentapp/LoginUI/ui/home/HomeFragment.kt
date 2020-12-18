@@ -94,8 +94,9 @@ class HomeFragment : Fragment() {
         val layoutManager=LinearLayoutManager(context)
         layoutManager.orientation=LinearLayoutManager.HORIZONTAL
 
-        val newBooksManager=GridLayoutManager(context,2)
-        newBooksManager.orientation=GridLayoutManager.HORIZONTAL
+       // val newBooksManager=GridLayoutManager(context,2)
+        val newBooksManager=LinearLayoutManager(context)
+        newBooksManager.orientation=LinearLayoutManager.HORIZONTAL
 
         home_suggested_recyclerview.layoutManager=layoutManager
         suggestedRecyclerviewAdapter.setApp(data)

@@ -1,11 +1,13 @@
 package com.eneserdogan.bookcommentapp.LoginUI.adapter
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.eneserdogan.bookcommentapp.LoginUI.model.Book
@@ -14,6 +16,18 @@ import kotlinx.android.synthetic.main.userbook_recyclerview_item.view.*
 
 class UserBookAdapter(val list:ArrayList<Book>) :RecyclerView.Adapter<UserBookAdapter.UserBookHolder>(){
     class UserBookHolder(view: View):RecyclerView.ViewHolder(view) {
+        fun bind(data:Book)= with(itemView){
+            userBook_recycler_bookname.text=data.name
+            userBook_recycler_author.text=data.author
+            userbookRecycler_comment.text="25"
+            userbookRecycler_score.text="7.2"
+            Glide.with(context).load(data.photoUri).centerCrop().into(userBook_recycler_image)
+            itemView.setOnClickListener {
+                val bundle=Bundle()
+                bundle.putString("bookKey",data.bookId)
+                Navigation.findNavController(it).navigate(R.id.profilfragment_to_bookDetailFragment,bundle)
+            }
+        }
 
     }
 
@@ -31,14 +45,7 @@ class UserBookAdapter(val list:ArrayList<Book>) :RecyclerView.Adapter<UserBookAd
     }
 
     override fun onBindViewHolder(holder: UserBookAdapter.UserBookHolder, position: Int) {
-        val book=list[position]
-        holder.itemView.userBook_recycler_bookname.text=book.name
-        holder.itemView.userBook_recycler_author.text=book.author
-        holder.itemView.userbookRecycler_comment.text="25"
-        holder.itemView.userbookRecycler_score.text="7.2"
-        val image:ImageView=holder.itemView.findViewById(R.id.userBook_recycler_image)
-        //Glide.with(context).load(book.photoUri).centerCrop().into(image)
-
+        holder.bind(list[position])
 
     }
 

@@ -1,8 +1,10 @@
 package com.eneserdogan.bookcommentapp.LoginUI.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.eneserdogan.bookcommentapp.LoginUI.model.Book
@@ -18,6 +20,7 @@ class SearchRecyclerAdapter :RecyclerView.Adapter<SearchRecyclerAdapter.MyViewHo
         this.filterList=dataList
         notifyDataSetChanged()
     }
+
     class MyViewHolder(view:View):RecyclerView.ViewHolder(view) {
         fun bind(data:Book)= with(itemView){
             searchRecycler_title.text=data.name
@@ -25,8 +28,12 @@ class SearchRecyclerAdapter :RecyclerView.Adapter<SearchRecyclerAdapter.MyViewHo
             searchRecycler_rating.text="3000+ Değerlendirme"
             searchRecycler_score.text="9.4"
             Glide.with(itemView.context).load(data.photoUri).into(searchRecycler_ımage)
+            itemView.setOnClickListener {
+                val bundle=Bundle()
+                bundle.putString("bookKey",data.bookId)
+                Navigation.findNavController(it).navigate(R.id.searchfragment_to_bookDetailFragment,bundle)
+            }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

@@ -1,5 +1,6 @@
 package com.eneserdogan.bookcommentapp.LoginUI.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,7 +27,9 @@ class NewBooksRecyclerviewAdapter:RecyclerView.Adapter<NewBooksRecyclerviewAdapt
             newBooksRecycler_bookName.text=data.name
             Glide.with(itemView.context).load(data.photoUri).into(newBooksRecycler_image)
             itemView.setOnClickListener {
-                Navigation.findNavController(it).navigate(R.id.action_navigation_home_to_bookDetailFragment)
+                val bundle=Bundle()
+                bundle.putString("bookKey",data.bookId)
+                Navigation.findNavController(it).navigate(R.id.action_navigation_home_to_bookDetailFragment,bundle)
             }
         }
     }

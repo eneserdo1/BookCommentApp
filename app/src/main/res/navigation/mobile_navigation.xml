@@ -19,7 +19,11 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.eneserdogan.bookcommentapp.LoginUI.ui.search.SearchFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/searchfragment_to_bookDetailFragment"
+            app:destination="@id/bookDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -32,6 +36,9 @@
         <action
             android:id="@+id/profilFragment_to_addBookFragment"
             app:destination="@id/addBookFragment" />
+        <action
+            android:id="@+id/profilfragment_to_bookDetailFragment"
+            app:destination="@id/bookDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/normalUserSettingFragment"
@@ -41,7 +48,12 @@
     <fragment
         android:id="@+id/bookDetailFragment"
         android:name="com.eneserdogan.bookcommentapp.LoginUI.ui.BookDetail.BookDetailFragment"
-        android:label="BookDetailFragment" />
+        android:label="BookDetailFragment" >
+        <argument
+            android:name="bookKey"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
     <fragment
         android:id="@+id/addBookFragment"
         android:name="com.eneserdogan.bookcommentapp.LoginUI.ui.profil.AddBookFragment"

@@ -1,8 +1,10 @@
 package com.eneserdogan.bookcommentapp.LoginUI.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.eneserdogan.bookcommentapp.LoginUI.model.Book
@@ -23,6 +25,11 @@ class SuggestedBookRecyclerAdapter:RecyclerView.Adapter<SuggestedBookRecyclerAda
             suggestedRecycler_score.text="8.4"
             Glide.with(itemView.context).load(data.photoUri).into(suggestedRecycler_image)
             Glide.with(itemView.context).load(data.photoUri).into(suggestedRecycler_author_ımage)
+            itemView.setOnClickListener {
+                var bundle=Bundle()
+                bundle.putString("bookKey",data.bookId.toString())
+                Navigation.findNavController(it).navigate(R.id.action_navigation_home_to_bookDetailFragment,bundle)
+            }
         }
 
     }

@@ -5,64 +5,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="50dp">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:weightSum="5"
         tools:context=".LoginUI.ui.BookDetail.BookDetailFragment">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/today"
-                android:scaleType="centerCrop"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_weight="2">
+           <ProgressBar
+               android:id="@+id/bookDetailFragment_progressbar"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_centerInParent="true"/>
 
-                <ImageView
-                    android:id="@+id/bookDetailFragment_bookImage"
-                    android:layout_width="150dp"
-                    android:layout_height="200dp"
-                    android:layout_gravity="center_vertical"
-                    android:background="@drawable/harrybackground" />
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:weightSum="1"
+               android:background="@color/dark_blue"
+               android:orientation="horizontal"
+               >
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
+               <ImageView
+                   android:id="@+id/bookDetailFragment_bookImage"
+                   android:layout_width="0dp"
+                   android:layout_height="200dp"
+                   android:layout_weight="0.4"
+                   android:scaleType="centerCrop"
+                   android:layout_gravity="center_vertical"
+                   android:background="@drawable/harrybackground" />
+               <TextView
+                   android:id="@+id/bookDetailFragment_bookName"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_margin="5dp"
+                   android:layout_weight="0.6"
+                   android:textColor="@color/white"
+                   android:gravity="center_vertical"
+                   android:layout_gravity="center_vertical"
+                   android:text="Harry Potter Felsefe Taşı"
+                   android:textSize="24sp" />
 
-                    <TextView
-                        android:id="@+id/bookDetailFragment_bookName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:gravity="center_vertical"
-                        android:text="Harry Potter Felsefe Taşı"
-                        android:textColor="@color/white"
-                        android:textSize="24sp" />
-
-                </LinearLayout>
-            </LinearLayout>
-        </FrameLayout>
+           </LinearLayout>
+       </RelativeLayout>
 
 
         <androidx.cardview.widget.CardView
             android:id="@+id/bookDetailFragment_authorcardview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
-
+            android:layout_weight="3">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/authorcard_background"
+                android:background="@color/dark_blue"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -73,7 +73,7 @@
                     android:weightSum="5"
                     android:orientation="horizontal">
 
-                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/bookDetailFragment_authorImage"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -119,10 +119,14 @@
                         app:civ_border_color="#000000"
                         app:civ_border_width="3dp" />
 
+
+
                     <TextView
                         android:id="@+id/bookDetailFragment_authorDetailName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:layout_margin="5dp"
                         android:text="Muhammed Enes Erdoğan"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -131,17 +135,20 @@
                         android:id="@+id/bookDetail_authorBiography"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:maxLines="25"
                         android:layout_margin="15dp"
+                        android:layout_weight="1"
                         android:text="@string/rowling_biyografi"
                         android:textSize="12sp" />
 
                     <Button
                         android:id="@+id/bookDetailFragment_commentButton"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:layout_margin="15dp"
                         android:background="@drawable/button_background_2"
                         android:text="Yorumla"
+                        android:layout_weight="1"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
 
@@ -153,13 +160,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:weightSum="2"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -181,9 +191,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
+                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
