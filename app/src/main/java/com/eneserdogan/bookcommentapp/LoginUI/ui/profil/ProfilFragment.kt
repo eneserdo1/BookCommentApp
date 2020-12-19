@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -21,6 +22,7 @@ class ProfilFragment : Fragment() {
 
     private lateinit var profilViewModel: ProfilViewModel
     private var userBookRecyclerAdapter=UserBookAdapter(arrayListOf())
+    private var userState: Boolean = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -88,6 +90,14 @@ class ProfilFragment : Fragment() {
                 profilFragment_name.text=user.name
                 profilFragment_username.text=user.mail
                 Glide.with(requireActivity()).load(user.imgUrl).into(profilFragment_imageview)
+                this.userState= it.premiumState!!
+                if (it.premiumState == false){
+                    profilFragment_userbook_recyclerview.visibility=View.GONE
+                }else{
+                    profilFragment_btn_bookCount.visibility=View.VISIBLE
+                    profilFragment_btn_bookCount.text="Kitaplarım"
+                    profilFragment_btn_premium.visibility=View.GONE
+                }
                 println("observer user $it")
             }
         })
@@ -100,7 +110,12 @@ class ProfilFragment : Fragment() {
         }
 
         profilFragment_floatBtn_add.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.profilFragment_to_addBookFragment)
+            if (userState == false){
+                Toast.makeText(requireContext(),"Kitap Ekleyebilmek İçin Yazar Olmanız Gerekiyor",Toast.LENGTH_LONG).show()
+            }else{
+                Navigation.findNavController(it).navigate(R.id.profilFragment_to_addBookFragment)
+            }
+
         }
     }
 

@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.eneserdogan.bookcommentapp.LoginUI.model.Book
+import com.eneserdogan.bookcommentapp.LoginUI.ui.BookDetail.BookDetailFragment
 import com.eneserdogan.bookcommentapp.R
 import kotlinx.android.synthetic.main.userbook_recyclerview_item.view.*
 
@@ -25,6 +26,9 @@ class UserBookAdapter(val list:ArrayList<Book>) :RecyclerView.Adapter<UserBookAd
             itemView.setOnClickListener {
                 val bundle=Bundle()
                 bundle.putString("bookKey",data.bookId)
+                val detail= BookDetailFragment()
+                detail.arguments=bundle
+                println("userbook adapter key ${data.bookId}")
                 Navigation.findNavController(it).navigate(R.id.profilfragment_to_bookDetailFragment,bundle)
             }
         }

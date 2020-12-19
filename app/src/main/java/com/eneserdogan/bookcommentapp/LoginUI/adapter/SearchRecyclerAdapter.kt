@@ -8,6 +8,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.eneserdogan.bookcommentapp.LoginUI.model.Book
+import com.eneserdogan.bookcommentapp.LoginUI.ui.BookDetail.BookDetailFragment
 import com.eneserdogan.bookcommentapp.R
 import kotlinx.android.synthetic.main.search_recyclerview_item.view.*
 
@@ -31,6 +32,9 @@ class SearchRecyclerAdapter :RecyclerView.Adapter<SearchRecyclerAdapter.MyViewHo
             itemView.setOnClickListener {
                 val bundle=Bundle()
                 bundle.putString("bookKey",data.bookId)
+                val detail= BookDetailFragment()
+                detail.arguments=bundle
+                println("searchrecycler adapter key ${data.bookId}")
                 Navigation.findNavController(it).navigate(R.id.searchfragment_to_bookDetailFragment,bundle)
             }
         }

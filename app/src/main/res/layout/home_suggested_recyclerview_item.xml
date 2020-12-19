@@ -33,28 +33,30 @@
                 android:drawableStart="@drawable/ic_baseline_star_24"
                 android:layout_marginStart="10dp"
                 android:textColor="@color/white"
-                android:textSize="22sp"/>
+                />
             <TextView
                 android:id="@+id/suggestedRecycler_bookName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Harry Potter Felsefe Taşı"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:layout_marginStart="10dp"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10dp"
                 android:orientation="horizontal">
                 <de.hdodenhof.circleimageview.CircleImageView
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/suggestedRecycler_author_ımage"
                     android:layout_width="50dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:src="@drawable/photo"
-                    app:civ_border_width="3dp"
+                    app:civ_border_width="2dp"
                     app:civ_border_color="#000000"/>
                 <TextView
                     android:id="@+id/suggestedRecycler_author_name"
@@ -66,7 +68,6 @@
                     android:textColor="@color/white"
                     android:layout_marginStart="5dp"/>
             </LinearLayout>
-
 
 
 

@@ -80,15 +80,29 @@
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-        <Button
-            android:id="@+id/profilFragment_btn_premium"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="2dp"
-            android:text="Yazar Ol"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:background="@drawable/button_background_3"/>
+            android:layout_height="50dp">
+            <Button
+                android:id="@+id/profilFragment_btn_premium"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:text="Yazar Ol"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:background="@drawable/button_background_3"/>
+            <Button
+                android:id="@+id/profilFragment_btn_bookCount"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:visibility="gone"
+                android:background="@drawable/button_background_3"/>
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

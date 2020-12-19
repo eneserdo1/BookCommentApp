@@ -8,6 +8,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.eneserdogan.bookcommentapp.LoginUI.model.Book
+import com.eneserdogan.bookcommentapp.LoginUI.ui.BookDetail.BookDetailFragment
 import com.eneserdogan.bookcommentapp.R
 import kotlinx.android.synthetic.main.home_newbooks_recyclerview_item.view.*
 
@@ -28,7 +29,10 @@ class NewBooksRecyclerviewAdapter:RecyclerView.Adapter<NewBooksRecyclerviewAdapt
             Glide.with(itemView.context).load(data.photoUri).into(newBooksRecycler_image)
             itemView.setOnClickListener {
                 val bundle=Bundle()
-                bundle.putString("bookKey",data.bookId)
+                bundle.putString("bookKey",data.bookId.toString())
+                val detail=BookDetailFragment()
+                detail.arguments=bundle
+                println("newbook adapter key ${data.bookId}")
                 Navigation.findNavController(it).navigate(R.id.action_navigation_home_to_bookDetailFragment,bundle)
             }
         }

@@ -79,7 +79,7 @@ class LoginPageSignupFragment : Fragment() {
                     signup_edittext_password.text.toString(),
                     "degersiz",
                     "boş",
-                    false,
+                    true,
                     "1997 doğumlu Bilgisayar Mühendisi"
 
                 )

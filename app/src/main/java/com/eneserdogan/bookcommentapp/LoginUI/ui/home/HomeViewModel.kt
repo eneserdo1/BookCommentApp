@@ -23,8 +23,8 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
     fun getAllData() :LiveData<List<Book>>{
         val books: MutableList<Book> = ArrayList()
         loadingData.value=true
-        databaseReference = FirebaseDatabase.getInstance().reference
 
+        databaseReference = FirebaseDatabase.getInstance().reference
 
         val rootref = databaseReference.child("Books")
         val valueEventListener = object : ValueEventListener {
